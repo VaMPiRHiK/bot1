@@ -22,10 +22,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push arm64
+      - name: Build and push arm64 (no cache)
         uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/arm64
           push: true
-          tags: bugaev155/tg-bot:arm64-socks1
+          no-cache: true
+          pull: true
+          tags: bugaev155/tg-bot:arm64-socks2
